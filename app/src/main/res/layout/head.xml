@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:gravity="center"
+    android:background="@color/blue">
+
+
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="20sp"
+            android:src="@mipmap/baobao"/>
+
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jacob Martin"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"/>
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jacob_martin@gmail.com"
+                android:layout_marginTop="8dp"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_regular"/>
+
+        </LinearLayout>
+</LinearLayout>

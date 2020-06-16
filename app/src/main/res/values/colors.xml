@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="framecolor">#e0e0e0</color>
+    <color name="textcolor">#434242</color>
+    <color name="gray">#8b93a0</color>
+    <color name="white">#fefefe</color>
+    <color name="black">#191919</color>
+
+
+    <color name="swiperefresh_color4">#ffaa66cc</color>
+    <color name="text_secondary_color">#9d9d9d</color>
+    <color name="dividerColorF0">#f0f0f0</color>
+
+    <!--主题颜色-->
+    <color name="blue">#6c83a9</color>
+</resources>

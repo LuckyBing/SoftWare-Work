@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_register_one_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/timg"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/input"
+        android:background="@drawable/frame"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_below="@+id/login_pic"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:paddingLeft="15dp"
+                android:src="@mipmap/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:id="@+id/forget_phone"
+                android:background="@null"
+                android:textSize="18sp"
+                android:textColor="@color/textcolor"
+                android:hint="手机号"
+                android:paddingLeft="15dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:background="@color/framecolor"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:paddingLeft="15dp"
+                android:src="@mipmap/msm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/forget_code"
+                android:background="@null"
+
+                android:textSize="18sp"
+                android:textColor="@color/textcolor"
+                android:hint="验证码"
+                android:paddingLeft="15dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:background="@color/white"
+                android:id="@+id/tb_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取验证码"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:textOff="@null"
+                android:textOn="@null" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/forget_btn"
+        android:text="下一步"
+        android:textSize="23sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn"
+        android:layout_below="@+id/input"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</LinearLayout>

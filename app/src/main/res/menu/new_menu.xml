@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Hy"
+        android:title="    会员中心" />
+    <item
+        android:id="@+id/rewrite"
+        android:title="    查看资料"/>
+
+    <item
+        android:id="@+id/check"
+        android:title="    点餐通知"/>
+    <item
+        android:id="@+id/ticket"
+        android:title="    卡卷红包"/>
+    <item
+        android:id="@+id/kefu"
+        android:title="    我的客服"/>
+    <item
+        android:id="@+id/set"
+        android:title="    系统设置"/>
+
+</menu>
