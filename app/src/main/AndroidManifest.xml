@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.order">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读取SD卡的权限:打开相册选取图片所必须的权限 -->
@@ -14,12 +15,16 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activity.TableActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".Activity.SuccessActivity"></activity>
+        <activity android:name=".Activity.ProductActivity" />
+        <activity android:name=".Activity.TableActivity" />
         <activity android:name=".Activity.GroupActivity" />
         <activity android:name=".Activity.FindtActivity" />
         <activity android:name=".Activity.FindoActivity" />
         <activity android:name=".Activity.RegActivity" />
+        <activity android:name=".Activity.PingjiaActivity" />
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

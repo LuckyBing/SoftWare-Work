@@ -30,6 +30,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.order.Fragment.DingdanFragment;
 import com.example.order.Fragment.HomepageFragment;
 import com.example.order.R;
 import com.example.order.Tool.GlideCircleTransform;
@@ -66,6 +67,7 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
     private FragmentTransaction transaction;
     private HomepageFragment homepageFragment;
     Calendar calendar;
+    DingdanFragment dingdanFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -279,7 +281,7 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
     private void initFragment() {
         homepageFragment = new HomepageFragment();
 //        orderFragment = new OrderFragment();
-//        dingdanFragment = new DingdanFragment();
+          dingdanFragment = new DingdanFragment();
           transaction = getSupportFragmentManager().beginTransaction();
          transaction.add(R.id.frameLayout,homepageFragment)
                 .commit();
@@ -303,7 +305,7 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
     public void onTabSelected(int position) {
         switch (position){
             case 0:
-                //switchFragment(homepageFragment);
+                switchFragment(homepageFragment);
                 tv_title.setText("首页");
                 break;
             case 1:
@@ -311,7 +313,7 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
                 tv_title.setText("预定");
                 break;
             case 2:
-                //switchFragment(dingdanFragment);
+                switchFragment(dingdanFragment);
                 tv_title.setText("订单");
                 break;
         }

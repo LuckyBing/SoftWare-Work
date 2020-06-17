@@ -34,13 +34,15 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.google.code.gson:gson:2.7'
-    implementation 'com.jakewharton:butterknife:7.0.0'
-    annotationProcessor "com.jakewharton:butterknife:7.0.0"
+    implementation 'com.jakewharton:butterknife:7.0.1'
+    annotationProcessor "com.jakewharton:butterknife:7.0.1"
     implementation 'com.github.yalantis:ucrop:2.2.3'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.haibin:calendarview:3.4.9'
     implementation "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0"
     implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
-    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+    implementation 'com.superbro:photoselecter:1.0.3'
+    implementation 'com.sxwz.qcodelib:qcodelib:1.0.1'
 }

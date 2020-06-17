@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/title"/>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_meetname"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:text="5#102会议室："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RatingBar
+            android:progressBackgroundTint="#e2e2e2"
+            android:progressTint="#ffc600"
+            android:secondaryProgressTint="#ffc600"
+            android:id="@+id/rb_main_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="5.0"
+            android:numStars="5"
+            android:stepSize="1.0"/>
+        <TextView
+            android:textColor="#DBDBDB"
+            android:id="@+id/tv_class"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:text="非常好"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <RelativeLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <EditText
+            android:id="@+id/editText1"
+            android:gravity="left|top"
+            android:textColorHint="#C6C6C6"
+            android:hint="会议室怎么样？反馈点意见吧~"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="400"
+            android:minHeight="200dp"/>
+        <TextView
+            android:textSize="18sp"
+            android:paddingRight="20dp"
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="0/400"/>
+    </RelativeLayout>
+
+    <GridView
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:verticalSpacing="3dp"
+        android:horizontalSpacing="3dp"
+        android:stretchMode="columnWidth"
+        android:columnWidth="62dp"
+        android:numColumns="3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView" />
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="16sp"
+            android:textColor="@color/textcolor"
+            android:text="匿名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:text="（您的评价将作为其他用户的参考）"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_fabu"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        android:text="发 布"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/frame6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

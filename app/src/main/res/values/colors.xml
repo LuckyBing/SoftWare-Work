@@ -17,4 +17,18 @@
 
     <!--主题颜色-->
     <color name="blue">#6c83a9</color>
+
+
+    <!--product-->
+    <color name="text_color_context">#666666</color><!-- 字体颜色  标题灰色 -->
+    <color name="bag_gray">#f4f4f4</color>
+    <color name="bag_gray_transparent">#00FFFFFF</color>
+    <color name="frament_tab_color">#f8f8f8</color>
+    <color name="cart_color">#f3f2f2</color>
+    <color name="cart_choice_color">#b4b4b4</color>
+    <color name="bg_color">#666633</color>
+    <color name="big_red">#ff66</color>
+    <color name="bg_Gray_light">#EEEEEE</color>
+    <color name="ban_tou">#b0000000</color>
+    <color name="title_bag">#2196F3</color>
 </resources>

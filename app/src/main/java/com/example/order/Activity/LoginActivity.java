@@ -177,6 +177,7 @@ public class LoginActivity extends Activity {
                     @Override
                     public void run() {
                         if(code.equals("true")) {
+                            Log.d("sdfd","true");
                             Intent intent = new Intent(LoginActivity.this, GroupActivity.class);
                             startActivity(intent);
                         }
