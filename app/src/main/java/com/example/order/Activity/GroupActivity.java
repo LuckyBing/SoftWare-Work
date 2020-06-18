@@ -119,9 +119,9 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
 //                        break;
                     case R.id.rewrite:
 //                        Log.d("sd","sd");
-//                        Intent intent2 = new Intent(RadioGroupActivity.this,RewriteActivity.class);
-//                        startActivity(intent2);
-//                        break;
+                        Intent intent2 = new Intent(GroupActivity.this,ModifyActivity.class);
+                        startActivity(intent2);
+                        break;
                     //case R.id.remind:
                     // Log.d("sd","sd");
                     // Intent intent3 = new Intent(RadioGroupActivity.this,YudingActivity.class);
@@ -272,7 +272,6 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
         bottomNavigationBar.setBarBackgroundColor(R.color.white);
         bottomNavigationBar.setInActiveColor(R.color.gray).setActiveColor(R.color.blue);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home_uncheck,"首页"))
-                .addItem(new BottomNavigationItem(R.mipmap.order_uncheck,"预定"))
                 .addItem(new BottomNavigationItem(R.mipmap.meeting_uncheck,"订单管理"))
                 .setFirstSelectedPosition(0)
                 .initialise();
@@ -308,11 +307,11 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
                 switchFragment(homepageFragment);
                 tv_title.setText("首页");
                 break;
+//            case 1:
+//                //switchFragment(orderFragment);
+//                tv_title.setText("预定");
+//                break;
             case 1:
-                //switchFragment(orderFragment);
-                tv_title.setText("预定");
-                break;
-            case 2:
                 switchFragment(dingdanFragment);
                 tv_title.setText("订单");
                 break;

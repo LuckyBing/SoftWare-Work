@@ -3,9 +3,11 @@ package com.example.order.Activity;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -53,6 +55,8 @@ public class LoginActivity extends Activity {
     TextView forget;
     String username,password;
     String code;
+    private SharedPreferences pre;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +65,7 @@ public class LoginActivity extends Activity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
         ButterKnife.bind(this);
+        pre= PreferenceManager.getDefaultSharedPreferences(this);
         et_psw.setTransformationMethod(PasswordTransformationMethod.getInstance());
         et_psw.setOnFocusChangeListener(onFocusAutoClearHintListener);
         et_user.setOnFocusChangeListener(onFocusAutoClearHintListener);
@@ -178,6 +183,10 @@ public class LoginActivity extends Activity {
                     public void run() {
                         if(code.equals("true")) {
                             Log.d("sdfd","true");
+                            editor=pre.edit();
+                            editor.putString("account",username);
+                            editor.apply();
+                            Log.d("dfsad",pre.getString("account",""));
                             Intent intent = new Intent(LoginActivity.this, GroupActivity.class);
                             startActivity(intent);
                         }

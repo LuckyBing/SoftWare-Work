@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0eff5">
+    <include layout="@layout/title"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_sex"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/nicheng"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textSize="16sp"/>
+
+
+
+        <EditText
+            android:background="@null"
+            android:layout_marginLeft="15dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nickname"
+            android:text="Jacob Martin"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/right3"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/sex" />
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别"
+            android:textSize="16sp"/>
+
+
+
+        <EditText
+            android:layout_marginLeft="15dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sex"
+            android:text="男"
+            android:background="@null"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/right3"/>
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/ll_phonenumber"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/phonenumber"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_marginLeft="15dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone"
+            android:text="176003136"
+            android:background="@null"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/right3"/>
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/ll_mail"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/mail"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="常用邮箱"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="270dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content"
+            android:text="jacob_martin@gmail.com"
+            android:id="@+id/mail"
+            android:background="@null"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/right3"/>
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/ll_handpsw"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/handpsw"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更换密码"
+            android:textSize="16sp"/>
+
+
+
+        <EditText
+            android:layout_marginLeft="15dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/pwd1"
+            android:background="@null"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/right3"/>
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dip"
+        android:background="#DBDBDB"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:id="@+id/mod"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="保存"
+            android:textColor="@color/white"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

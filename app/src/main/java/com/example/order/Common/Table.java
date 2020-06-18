@@ -2,33 +2,31 @@ package com.example.order.Common;
 
 public class Table {
 
-    private int id;
-    private int num;
+    private String id;
+    private String num;
     private int state;
 
-
-
-    public int getId() {
-        return id;
+    public String getNum() {
+        return num;
     }
 
-    public int getNum() {
-        return num;
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getState() {
         return state;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-    public void setState(int state) {
-        this.state = state;
+    public String getId() {
+        return id;
     }
 }

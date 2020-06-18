@@ -8,6 +8,15 @@ public class Dishes {
     private String evaluate;    //评价
     private int kindid;    //种类
     private int salesCount;     //菜品数量
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public double getFoodPrice() {
         return foodPrice;

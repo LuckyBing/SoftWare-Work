@@ -154,7 +154,12 @@
                     android:id="@+id/tv_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="更多"
+                    android:background="@drawable/frame8"
+                    android:text="查看"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="5dp"
                     android:textColor="#586473" />
 
                 <TextView

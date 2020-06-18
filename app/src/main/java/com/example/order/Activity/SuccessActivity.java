@@ -30,6 +30,8 @@ public class SuccessActivity extends AppCompatActivity {
         left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent();
+                setResult(2, intent);
                 finish();
             }
         });

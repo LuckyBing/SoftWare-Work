@@ -38,14 +38,14 @@ public class HomepageFragment extends Fragment {
     private MZBannerView mMZBanner;
     private List list = new ArrayList();
     private RefreshLayout refreshLayout;
-    private Button book;
+    //private Button book;
     private Button online;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homepagefragment,container,false);
         LinearLayoutManager manager = new LinearLayoutManager(view.getContext());
-        book=view.findViewById(R.id.book);
+        //book=view.findViewById(R.id.book);
         online=view.findViewById(R.id.online);
         mMZBanner = (MZBannerView) view.findViewById(R.id.banner);
         initBanner();
@@ -57,12 +57,12 @@ public class HomepageFragment extends Fragment {
                 refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
             }
         });
-        book.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        book.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
         online.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

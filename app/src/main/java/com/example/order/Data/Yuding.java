@@ -12,7 +12,10 @@ public class Yuding {
     private String meettime;
     private String meetname;
     private int state;
+    public Yuding()
+    {
 
+    }
     public Yuding(String ordertime, String mrname, String meettime, String meetname, int state) {
         this.ordertime = ordertime;
         this.mrname = mrname;

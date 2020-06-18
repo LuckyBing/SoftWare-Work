@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -39,6 +41,9 @@ import com.example.order.Tool.UIHelper;
 import com.example.order.Tool.Utils;
 import com.example.order.adapter.LeftAdapter;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,7 +79,8 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
     private int lastFirstVisibleItem = -1;
     private List<Product> mProductList;
     private List<Cart> mCartList = new ArrayList<Cart>();
-
+    private List<Cart> cartList=new ArrayList<Cart>();
+    String tableId;
     private ViewGroup anim_mask_layout;//动画层
     private int buyNum = 0;//购买数量
 
@@ -91,6 +97,7 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
      */
     private View lastView;
     Handler handler;
+    String info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +120,8 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
         left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent en=new Intent();
+                setResult(5,en);
                 finish();
             }
         });
@@ -150,6 +159,11 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
      * 初始化数据
      */
     private void initData() {
+        Intent int1=getIntent();
+        tableId=int1.getStringExtra("tableId");
+        info=int1.getStringExtra("info");
+        Log.d("info",tableId+info);
+        UIHelper.clearCart(getApplicationContext(), businessId);
         String url="https://www.luckyc.top/Order/getMenu";
         HttpUtil.sendOkHttpRequest(url, new Callback() {
             @Override
@@ -160,8 +174,9 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String responseText = response.body().string();
+                Log.d("sdgdf",responseText);
                 mProductList= JsonData.handleMenuResponse(responseText);
-                Log.d("dsfsd",mProductList.get(0).getFoodName());
+               // Log.d("dsfsd",mProductList.get(0).getFoodName());
                 handler.sendEmptyMessage(0);
             }
         });
@@ -371,11 +386,11 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
             mPriceSumView.setTextColor(getResources().getColor(R.color.big_red));
             if (priceSum > 0) {
                 selectedView.setEnabled(true);
-                selectedView.setText("提交菜单");
+                selectedView.setText("选好了");
                 selectedView.setBackgroundResource(R.drawable.bg_choice_press_round);
             } else {
                 selectedView.setEnabled(false);
-                selectedView.setText("请点餐");
+                selectedView.setText("￥40起");
                 selectedView.setBackgroundResource(R.drawable.bg_choice_round);
             }
             shopCart.setImageResource(R.mipmap.cart13);
@@ -385,7 +400,7 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
             mPriceSumView.setText("请点餐~");
             mPriceSumView.setTextColor(getResources().getColor(R.color.cart_choice_color));
             selectedView.setEnabled(false);
-            selectedView.setText("请点餐");
+            selectedView.setText("￥40起");
             selectedView.setBackgroundResource(R.drawable.bg_choice_round);
             shopCart.setImageResource(R.mipmap.cart12);
             buyNumView.setVisibility(View.GONE);
@@ -401,8 +416,8 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.selected_view:
-                Intent intent=new Intent(ProductActivity.this,SuccessActivity.class);
-                startActivityForResult(intent,1);
+                commit();
+                Log.d("df",cartList.get(0).getName());
                 break;
             case R.id.iv_add_cart:
                 initPopWindow();
@@ -428,8 +443,78 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
                     setResult(RESULT_OK,in);
                    finish();
                 }
+                else
+                {
+                    Log.d("efass","ewr");
+                    UIHelper.clearCart(getApplicationContext(), businessId);
+                    cartFrame.setEnabled(false);
+                    //popupWindow.dismiss();
+                    rightAdapter.notifyDataSetChanged();
+                    leftAdapter.notifyDataSetChanged();
+                    priceSum = 0.0;
+                    buyNum = 0;
+                    showSeleted();
+                }
                 break;
         }
+    }
+    private void commit()
+    {
+        SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(this);
+        cartList = UIHelper.getCartList(this, businessId);
+        String dishes="";
+        String dishNum="";
+        int i;
+        for(i=0;i<cartList.size()-1;i++)
+        {
+
+            dishes+=search(cartList.get(i).getName())+",";
+            dishNum+=cartList.get(i).getSaleCount()+",";
+        }
+        dishes+=search(cartList.get(i).getName());
+        dishNum+=cartList.get(i).getSaleCount();
+        String url1;
+        if(info.equals("点餐"))
+        url1="https://www.luckyc.top/Order/addorder?cus_id="+pref.getString("account","")+
+                "&table_id="+tableId+"&state=1&priceall="+priceSum+"&num="+dishNum+"&dishes="+dishes;
+        else
+            url1="https://www.luckyc.top/Order/changeorder?table_id="+tableId+"&dishes="+dishes+"&num="+dishNum;
+
+        HttpUtil.sendOkHttpRequest(url1, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(ProductActivity.this,"提交订单失败",Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseText = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(responseText);
+                    String info=jsonObject.getString("info");
+                    if(info.equals("1"))
+                    {
+                        Intent intent=new Intent(ProductActivity.this,SuccessActivity.class);
+                        startActivityForResult(intent,1);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Log.d("sdfdf",url1);
+    }
+    private String search(String name) {
+        Log.d("sdfsdf",name);
+        for(int j=0;j<mProductList.size();j++)
+        {
+            if(name.equals(mProductList.get(j).getFoodName())) {
+                return String.valueOf(mProductList.get(j).getProductId());
+            }
+
+        }
+        return null;
     }
 
 

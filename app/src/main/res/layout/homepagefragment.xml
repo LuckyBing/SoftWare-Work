@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="在线点餐"/>
-                <Button
+                <!--Button
                     android:id="@+id/book"
                     android:layout_marginTop="50dp"
                     android:layout_marginLeft="50dp"
@@ -51,7 +51,7 @@
                     android:textColor="#ffffff"
                     android:background="@drawable/btn"
                     android:layout_height="50dp"
-                    android:text="预定点餐"/>
+                    android:text="预定点餐"/-->
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

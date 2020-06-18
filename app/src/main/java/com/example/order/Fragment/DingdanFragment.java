@@ -45,27 +45,18 @@ public class DingdanFragment extends Fragment {
     }
     private void initFragment() {
         fragmentList = new ArrayList<>();
-        fragmentList.add(CheckInfoFragment.instantiate("待付款"));
-        fragmentList.add(CheckInfoFragment.instantiate("已预定"));
         fragmentList.add(CheckInfoFragment.instantiate("处理中"));
-        fragmentList.add(CheckInfoFragment.instantiate("已取消"));
         fragmentList.add(CheckInfoFragment.instantiate("已完成"));
 
     }
 
     private void initTitile() {
         titleList = new ArrayList<>();
-        titleList.add("待付款");
-        titleList.add("已预定");
         titleList.add("处理中");
-        titleList.add("已取消");
         titleList.add("已完成");
         tab_check_info.setTabMode(TabLayout.MODE_FIXED);
         tab_check_info.addTab(tab_check_info.newTab().setText(titleList.get(0)));
         tab_check_info.addTab(tab_check_info.newTab().setText(titleList.get(1)));
-        tab_check_info.addTab(tab_check_info.newTab().setText(titleList.get(2)));
-        tab_check_info.addTab(tab_check_info.newTab().setText(titleList.get(3)));
-        tab_check_info.addTab(tab_check_info.newTab().setText(titleList.get(4)));
     }
 
 

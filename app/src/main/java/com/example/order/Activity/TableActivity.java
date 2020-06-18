@@ -95,6 +95,7 @@ public class TableActivity extends AppCompatActivity {
                                 Table t=tableLists.get(pos);
                                 Intent intent =new Intent(TableActivity.this,ProductActivity.class);
                                 intent.putExtra("tableId",String.valueOf(t.getId()));
+                                intent.putExtra("info","点餐");
                                 Toast.makeText(TableActivity.this,String.valueOf(t.getId()),Toast.LENGTH_SHORT).show();
                                 startActivityForResult(intent,2);
                             }
@@ -126,6 +127,11 @@ public class TableActivity extends AppCompatActivity {
             case 2:
                 if (resultCode == RESULT_OK) {
                     finish();
+                }
+                else
+                {
+                    datainit();
+                    init();
                 }
                 break;
         }
