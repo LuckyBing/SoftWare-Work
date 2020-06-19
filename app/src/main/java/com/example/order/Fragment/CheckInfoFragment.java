@@ -48,7 +48,6 @@ public class CheckInfoFragment extends Fragment {
     private SharedPreferences pre;
     Handler handler;
     Handler handler1;
-    Handler handler3,handler4;
     public static CheckInfoFragment instantiate(String tag) {
         CheckInfoFragment fragment = new CheckInfoFragment();
         Bundle bundle = new Bundle();
@@ -65,19 +64,17 @@ public class CheckInfoFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         rv_yuding.setLayoutManager(manager);
         pre= PreferenceManager.getDefaultSharedPreferences(getActivity());
-
+        Log.d("dsf","点on");
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        Log.d("dsf","点here");
         super.onActivityCreated(savedInstanceState);
         Bundle arguments = getArguments();
 
         switch (arguments.getString("tag")) {
-
-
-
             case "已完成":
                 init();
 //                yudingList = new ArrayList<>();
@@ -100,62 +97,67 @@ public class CheckInfoFragment extends Fragment {
                         // 工作线程中要发送的信息全都被放到了Message对象中，也就是上面的参数msg中。要进行操作就要先取出msg中传递的数据。
                         switch (msg.what) {
                             case 0:
-                                adapter1 = new CheckAdapter(yudingList);
-                                Log.d("0",yudingList.get(0).getMrname());
-                                adapter1.setOnItemClickListener(new CheckAdapter.OnItemClickListener() {
-                                    @Override
-                                    public void onItemOrderClick(final int pos, final List<Yuding> roomLists) {
-                                        new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
-                                                .setTitleText("确认删除?")
-                                                .setCancelText("取消")
-                                                .setConfirmText("删除")
-                                                .showCancelButton(true)
-                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                    @Override
-                                                    public void onClick(final SweetAlertDialog sDialog) {
 
-                                                        String url="https://www.luckyc.top/Order/changeorderstate?order_id="+roomLists.get(pos).getOrdertime()+"&state=2";
-                                                        Log.d("dsf",url);
-                                                        HttpUtil.sendOkHttpRequest(url, new okhttp3.Callback() {
-                                                            @Override
-                                                            public void onFailure(Call call, IOException e) {
+                                    adapter1 = new CheckAdapter(yudingList);
+//                                Log.d("0",yudingList.get(0).getMrname());
+                                    adapter1.setOnItemClickListener(new CheckAdapter.OnItemClickListener() {
+                                        @Override
+                                        public void onItemOrderClick(final int pos, final List<Yuding> roomLists) {
+                                            new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                                                    .setTitleText("确认删除?")
+                                                    .setCancelText("取消")
+                                                    .setConfirmText("删除")
+                                                    .showCancelButton(true)
+                                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                        @Override
+                                                        public void onClick(final SweetAlertDialog sDialog) {
 
-                                                            }
+                                                            String url = "https://www.luckyc.top/Order/changeorderstate?order_id=" + roomLists.get(pos).getOrdertime() + "&state=2";
+                                                            Log.d("dsf", url);
+                                                            HttpUtil.sendOkHttpRequest(url, new okhttp3.Callback() {
+                                                                @Override
+                                                                public void onFailure(Call call, IOException e) {
 
-                                                            @Override
-                                                            public void onResponse(Call call, Response response) throws IOException {
-                                                                String responseText = response.body().string();
-                                                                try {
-                                                                    JSONObject jsonObject = new JSONObject(responseText);
-                                                                    String info=jsonObject.getString("info");
-                                                                    if(info.equals("成功"))
-                                                                    {
-                                                                        handler.sendEmptyMessage(2);
-                                                                        sDialog.dismissWithAnimation();
-
-                                                                    }
-                                                                } catch (JSONException e) {
-                                                                    e.printStackTrace();
                                                                 }
-                                                            }
-                                                        });
-                                                    }
-                                                })
-                                                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                    @Override
-                                                    public void onClick(SweetAlertDialog sDialog) {
-                                                        sDialog.cancel();
-                                                    }
-                                                })
-                                                .show();
-                                    }
 
-                                    @Override
-                                    public void onItemcardClick(int pos, List<Yuding> roomLists) {
-                                        Log.d("click:","clickadpter1Ocard");
-                                    }
-                                });
-                                rv_yuding.setAdapter(adapter1);
+                                                                @Override
+                                                                public void onResponse(Call call, Response response) throws IOException {
+                                                                    String responseText = response.body().string();
+                                                                    Log.d("success",responseText);
+                                                                    try {
+                                                                        JSONObject jsonObject = new JSONObject(responseText);
+                                                                        String info = jsonObject.getString("info");
+                                                                        Log.d("success",info);
+                                                                        if (info.equals("1")) {
+                                                                            Log.d("success",info);
+                                                                            handler.sendEmptyMessage(2);
+                                                                            sDialog.dismissWithAnimation();
+
+
+                                                                        }
+                                                                    } catch (JSONException e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    })
+                                                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                        @Override
+                                                        public void onClick(SweetAlertDialog sDialog) {
+                                                            sDialog.cancel();
+                                                        }
+                                                    })
+                                                    .show();
+                                        }
+
+                                        @Override
+                                        public void onItemcardClick(int pos, List<Yuding> roomLists) {
+                                            Log.d("click:", "clickadpter1Ocard");
+                                        }
+                                    });
+                                    rv_yuding.setAdapter(adapter1);
+
                                 break;
                             case 2:
                                 init();
@@ -165,72 +167,74 @@ public class CheckInfoFragment extends Fragment {
                 break;
 
             case "处理中":
+                Log.d("ds","处理中");
                 init1();
                 handler1 = new Handler() {
                     public void handleMessage(android.os.Message msg) {
                         // 工作线程中要发送的信息全都被放到了Message对象中，也就是上面的参数msg中。要进行操作就要先取出msg中传递的数据。
                         switch (msg.what) {
                             case 0:
-                                //Log.d("0",yudingList.get(0).getMrname());
-                                adapter1 = new CheckAdapter(yudingList);
-                                adapter1.setOnItemClickListener(new CheckAdapter.OnItemClickListener() {
-                                    @Override
-                                    public void onItemOrderClick(final int pos, final List<Yuding> roomLists) {
-                                        new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
-                                                .setTitleText("确认付款?")
-                                                .setCancelText("取消")
-                                                .setConfirmText("付款")
-                                                .showCancelButton(true)
-                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                    @Override
-                                                    public void onClick(final SweetAlertDialog sDialog) {
+                                //(Log.d("0",yudingList.get(0).getMrname());
 
-                                                        String url="https://www.luckyc.top/Order/changeorderstate?order_id="+roomLists.get(pos).getOrdertime()+"&state=1";
-                                                        Log.d("dsf",url);
-                                                        HttpUtil.sendOkHttpRequest(url, new okhttp3.Callback() {
-                                                            @Override
-                                                            public void onFailure(Call call, IOException e) {
 
-                                                            }
+                                    adapter1 = new CheckAdapter(yudingList);
+                                    adapter1.setOnItemClickListener(new CheckAdapter.OnItemClickListener() {
+                                        @Override
+                                        public void onItemOrderClick(final int pos, final List<Yuding> roomLists) {
+                                            new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                                                    .setTitleText("确认付款?")
+                                                    .setCancelText("取消")
+                                                    .setConfirmText("付款")
+                                                    .showCancelButton(true)
+                                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                        @Override
+                                                        public void onClick(final SweetAlertDialog sDialog) {
 
-                                                            @Override
-                                                            public void onResponse(Call call, Response response) throws IOException {
-                                                                String responseText = response.body().string();
-                                                                try {
-                                                                    JSONObject jsonObject = new JSONObject(responseText);
-                                                                    String info=jsonObject.getString("info");
-                                                                    if(info.equals("成功"))
-                                                                    {
-                                                                        handler1.sendEmptyMessage(2);
-                                                                        sDialog.dismissWithAnimation();
+                                                            String url = "https://www.luckyc.top/Order/changeorderstate?order_id=" + roomLists.get(pos).getOrdertime() + "&state=1";
+                                                            Log.d("dsf", url);
+                                                            HttpUtil.sendOkHttpRequest(url, new okhttp3.Callback() {
+                                                                @Override
+                                                                public void onFailure(Call call, IOException e) {
 
-                                                                    }
-                                                                } catch (JSONException e) {
-                                                                    e.printStackTrace();
                                                                 }
-                                                            }
-                                                        });
-                                                    }
-                                                })
-                                                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                    @Override
-                                                    public void onClick(SweetAlertDialog sDialog) {
-                                                        sDialog.cancel();
-                                                    }
-                                                })
-                                                .show();
-                                    }
 
-                                    @Override
-                                    public void onItemcardClick(final int pos, final List<Yuding> roomLists) {
-                                        Intent intent=new Intent(getActivity(), ProductActivity.class);
-                                        intent.putExtra("info","加菜");
-                                        intent.putExtra("tableId",roomLists.get(pos).getMrname());
-                                        startActivity(intent);
+                                                                @Override
+                                                                public void onResponse(Call call, Response response) throws IOException {
+                                                                    String responseText = response.body().string();
+                                                                    try {
+                                                                        JSONObject jsonObject = new JSONObject(responseText);
+                                                                        String info = jsonObject.getString("info");
+                                                                        if (info.equals("1")) {
+                                                                            handler1.sendEmptyMessage(2);
+                                                                            sDialog.dismissWithAnimation();
+                                                                        }
+                                                                    } catch (JSONException e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    })
+                                                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                        @Override
+                                                        public void onClick(SweetAlertDialog sDialog) {
+                                                            sDialog.cancel();
+                                                        }
+                                                    })
+                                                    .show();
+                                        }
 
-                                    }
-                                });
-                                rv_yuding.setAdapter(adapter1);
+                                        @Override
+                                        public void onItemcardClick(final int pos, final List<Yuding> roomLists) {
+                                            Intent intent = new Intent(getActivity(), ProductActivity.class);
+                                            intent.putExtra("info", "加菜");
+                                            intent.putExtra("tableId", roomLists.get(pos).getMrname());
+                                            startActivity(intent);
+
+                                        }
+                                    });
+                                    rv_yuding.setAdapter(adapter1);
+
                                 break;
                             case 2:
                                 init1();

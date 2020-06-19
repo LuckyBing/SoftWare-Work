@@ -1,10 +1,16 @@
 package com.example.order.adapter;
 
 
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.example.order.Fragment.DealFragment;
+import com.example.order.Fragment.FinishFragment;
 
 import java.util.List;
 
@@ -23,6 +29,7 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
         return mFragmentList.get(position);
     }
 
@@ -36,4 +43,6 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTilteLis.get(position);
     }
+
+
 }

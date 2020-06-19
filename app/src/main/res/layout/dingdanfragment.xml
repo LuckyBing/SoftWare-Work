@@ -16,9 +16,9 @@
         app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <FrameLayout
         android:background="#f7f7fc"
-        android:id="@+id/vp_check_info"
+        android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

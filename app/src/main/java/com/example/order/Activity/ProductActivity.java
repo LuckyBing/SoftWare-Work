@@ -31,6 +31,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.order.Common.Cart;
 import com.example.order.Common.Product;
 import com.example.order.Http.HttpUtil;
@@ -476,7 +477,7 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
         String url1;
         if(info.equals("点餐"))
         url1="https://www.luckyc.top/Order/addorder?cus_id="+pref.getString("account","")+
-                "&table_id="+tableId+"&state=1&priceall="+priceSum+"&num="+dishNum+"&dishes="+dishes;
+                "&table_id="+tableId+"&state=0&priceall="+priceSum+"&num="+dishNum+"&dishes="+dishes;
         else
             url1="https://www.luckyc.top/Order/changeorder?table_id="+tableId+"&dishes="+dishes+"&num="+dishNum;
 
@@ -673,7 +674,8 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
 
             //此处可以设置商品的图片========请在使用的过程中自行替换
             String url = mProduct.getImageUrl();
-            viewProductHolder.productImage.setImageResource(R.mipmap.canting3);
+            Glide.with(getApplication()).load(url).into(viewProductHolder.productImage);
+           // viewProductHolder.productImage.setImageResource(R.mipmap.canting3);
 
 
             viewProductHolder.removeProductImage.setOnClickListener(new View.OnClickListener() {

@@ -52,7 +52,7 @@ public class ViewActivity extends AppCompatActivity {
     public void init()
     {
         if(state==1) {
-            String url = "http://120.26.185.147:10085/Order/FindallOrderbycus_id?id=" + pref.getString("account", "") + "&state=1";
+            String url = "https://www.luckyc.top/Order/FindallOrderbycus_id?id=" + pref.getString("account", "") + "&state=1";
             HttpUtil.sendOkHttpRequest(url, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -70,7 +70,7 @@ public class ViewActivity extends AppCompatActivity {
         }
         else
         {
-            String url = "http://120.26.185.147:10085/Order/FindallOrderbycus_id?id=" + pref.getString("account", "") + "&state=0";
+            String url = "https://www.luckyc.top/Order/FindallOrderbycus_id?id=" + pref.getString("account", "") + "&state=0";
             HttpUtil.sendOkHttpRequest(url, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
