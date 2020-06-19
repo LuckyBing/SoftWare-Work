@@ -133,7 +133,7 @@ public class ImageUtils {
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 photoURI = FileProvider.getUriForFile(activity,
-                        "com.example.app.fileprovider",
+                        "com.example.order.fileprovider",
                         photoFile);
                 Log.d("2020/3/6",photoURI.toString());
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
