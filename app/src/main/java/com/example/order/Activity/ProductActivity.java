@@ -479,7 +479,7 @@ public class ProductActivity extends AppCompatActivity implements SectionIndexer
         url1="https://www.luckyc.top/Order/addorder?cus_id="+pref.getString("account","")+
                 "&table_id="+tableId+"&state=0&priceall="+priceSum+"&num="+dishNum+"&dishes="+dishes;
         else
-            url1="https://www.luckyc.top/Order/changeorder?table_id="+tableId+"&dishes="+dishes+"&num="+dishNum;
+            url1="https://www.luckyc.top/Order/changeorder?table_id="+tableId+"&dishes="+dishes+"&num="+dishNum+"&priceall="+priceSum;
 
         HttpUtil.sendOkHttpRequest(url1, new Callback() {
             @Override

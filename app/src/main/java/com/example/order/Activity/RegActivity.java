@@ -112,12 +112,12 @@ public class RegActivity extends Activity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        if(code.equals("true")) {
+                                        if(code.equals("1")) {
                                             Toast.makeText(RegActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
                                             finish();
                                         }
                                         else
-                                            Toast.makeText(RegActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegActivity.this, "已注册", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }

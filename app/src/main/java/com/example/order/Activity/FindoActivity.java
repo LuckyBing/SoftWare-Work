@@ -46,7 +46,7 @@ public class FindoActivity extends Activity {
             public void onClick(View v) {
 
                 final String uId=forget_phone.getText().toString();
-                String url="https://www.luckyc.top/Order/Fphone?username="+uId;
+                String url="https://www.luckyc.top/Order/Fphone?id="+uId;
                 HttpUtil.sendOkHttpRequest(url, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
@@ -64,7 +64,7 @@ public class FindoActivity extends Activity {
                         final String responseText = response.body().string();
                         try {
                             JSONObject parse = new JSONObject(responseText);
-                            code = parse.getString("info");
+                            code = parse.getString("c_id");
                             Log.d("sdf",code);
 
                         } catch (JSONException e) {
@@ -73,7 +73,7 @@ public class FindoActivity extends Activity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                if(code.equals("true")) {
+                                if(code.equals(uId)) {
                                     Intent intent=new Intent(FindoActivity.this,FindtActivity.class);
                                     intent.putExtra("uid",uId);
                                     startActivity(intent);
