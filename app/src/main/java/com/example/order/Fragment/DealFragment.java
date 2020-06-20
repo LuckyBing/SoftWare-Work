@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -47,6 +48,7 @@ public class DealFragment extends Fragment {
         rv_yuding = (RecyclerView) view.findViewById(R.id.rv_yuding);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         rv_yuding.setLayoutManager(manager);
+        yudingList=new ArrayList<Yuding>();
         pre= PreferenceManager.getDefaultSharedPreferences(getActivity());
         init();
         return view;

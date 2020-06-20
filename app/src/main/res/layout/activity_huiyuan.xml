@@ -26,6 +26,7 @@
         android:orientation="horizontal"
         >
         <Button
+            android:id="@+id/pay"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="250dp"

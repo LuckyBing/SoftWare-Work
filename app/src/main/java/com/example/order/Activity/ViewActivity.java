@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.order.Common.Table;
 import com.example.order.Http.HttpUtil;
@@ -30,6 +33,10 @@ import okhttp3.Response;
 public class ViewActivity extends AppCompatActivity {
     @Bind(R.id.re_view)
     RecyclerView re_view;
+    @Bind(R.id.btn_left)
+    ImageButton left;
+    @Bind(R.id.tv_title)
+    TextView title;
     SharedPreferences pref;
     int pos;
     int state;
@@ -41,6 +48,13 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
         ButterKnife.bind(this);
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        title.setText("查看菜单");
         pref= PreferenceManager.getDefaultSharedPreferences(this);
         Intent intent=getIntent();
         pos=Integer.valueOf(intent.getStringExtra("pos")).intValue();
