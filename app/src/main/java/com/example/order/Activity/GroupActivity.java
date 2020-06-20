@@ -104,9 +104,9 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
                 switch (item.getItemId()){
                     case R.id.Hy:
 //                        Log.d("sd","sd");
-//                        Intent intent1 = new Intent(RadioGroupActivity.this,ConfirmActivity.class);
-//                        startActivity(intent1);
-//                        break;
+                        Intent intent1 = new Intent(GroupActivity.this,HuiyuanActivity.class);
+                        startActivity(intent1);
+                        break;
                     //case R.id.face:
 //                        Intent intent = new Intent();
 //                        intent.setClassName("com.henu.swface", "com.henu.swface.activity.RegisterFaceActivity");
@@ -132,16 +132,16 @@ public class GroupActivity extends FragmentActivity implements BottomNavigationB
 //                        Intent intent5 = new Intent(RadioGroupActivity.this,JifenActivity.class);
 //                        startActivity(intent5);
 //                        break;
-                    case R.id.check:
+//                    case R.id.check:
 //                        Log.d("sd","sd");
 //                        Intent intent4 = new Intent(RadioGroupActivity.this,CheckActivity.class);
 //                        startActivity(intent4);
 //                        break;
-                    case R.id.ticket:
+//                    case R.id.ticket:
 //                        Intent intent6=new Intent(RadioGroupActivity.this,TicketActivity.class);
 //                        startActivity(intent6);
 //                        break;
-                    case R.id.set:
+//                    case R.id.set:
 //                        Intent intent7=new Intent(RadioGroupActivity.this,SetActivity.class);
 //                        startActivity(intent7);
 //                        break;

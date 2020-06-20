@@ -7,17 +7,5 @@
         android:id="@+id/rewrite"
         android:title="    查看资料"/>
 
-    <item
-        android:id="@+id/check"
-        android:title="    点餐通知"/>
-    <item
-        android:id="@+id/ticket"
-        android:title="    卡卷红包"/>
-    <item
-        android:id="@+id/kefu"
-        android:title="    我的客服"/>
-    <item
-        android:id="@+id/set"
-        android:title="    系统设置"/>
 
 </menu>
