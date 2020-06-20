@@ -50,11 +50,13 @@ public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Yuding y = mCheckList.get(position);
-        holder.tv_ordertime.setText(y.getMeettime());
+
         holder.tv_mrname.setText(y.getMrname()+"号桌");
-        holder.tv_meettime.setText("预定时间："+y.getOrdertime());
+
         holder.tv_meetname.setText("总价："+y.getMeetname()+"元");
         if (y.getState()==0){
+            holder.tv_ordertime.setText(y.getOrdertime());
+            holder.tv_meettime.setText("感谢您的的用餐");
             holder.tv_state.setText("处理中");
             holder.tv_edit.setText("加菜");
             holder.tv_cancel.setText("付款");
@@ -71,6 +73,8 @@ public class CheckAdapter extends RecyclerView.Adapter<CheckAdapter.ViewHolder> 
                 holder.tv_state.setText("已完成");
                 holder.tv_edit.setText("评价");
                 holder.tv_cancel.setText("删除");
+                holder.tv_ordertime.setText(y.getMeettime());
+            holder.tv_meettime.setText("预定时间："+y.getOrdertime());
 
 
 
